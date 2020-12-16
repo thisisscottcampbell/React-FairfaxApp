@@ -1,4 +1,5 @@
 import React from 'react';
+import CollectionItem from '../collection-item/CollectionItem'
 import './Preview.scss';
 
 const Preview = ({ title, items }) => {
@@ -8,10 +9,7 @@ const Preview = ({ title, items }) => {
       <div className="preview">
         {items
           .filter((item, i) => i < 4)
-          .map(item =>
-          <div key={item.id}>
-            {item.name}
-          </div>
+          .map(({id, ...itemProps}) => <CollectionItem key={id} {...itemProps} />
         )}
       </div>
     </div>
